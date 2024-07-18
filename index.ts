@@ -1,8 +1,12 @@
 import Ajv, {JSONSchemaType} from "ajv";
 import addFormats from 'ajv-formats'
 
+import spdx from "./data/spdx/licenses.json"
+
 const ajv = new Ajv({allowUnionTypes: true});
 addFormats(ajv);
+
+const licenses = spdx.licenses.map(license => `https://spdx.org/licenses/${license.licenseId}`)
 
 interface Review {
   type: "Review"
@@ -39,7 +43,7 @@ interface CodemetaV3 {
   identifier?: string
   isPartOf?: string
   keywords?: string
-  license?: string // TODO from SPDX list
+  license?: string
   name: string
   operatingSystem?: string
   programmingLanguage?: string
@@ -138,6 +142,7 @@ const Schema: JSONSchemaType<CodemetaV3> = {
     },
     license: {
       type: "string",
+      enum: licenses,
       nullable: true
     },
     name: {
@@ -278,6 +283,7 @@ const validate = ajv.compile(Schema);
 const data = {
     "@context": "https://w3id.org/codemeta/3.0",
     "type": "SoftwareSourceCode",
+    "license": "https://spdx.org/licenses/AGPL-3.0-or-later",
     "name": "foo"
 };
 
