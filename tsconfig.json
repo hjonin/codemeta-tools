@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "dist",
+    "strictNullChecks": true,
+    "target": "ES6",
+    "module": "NodeNext"
+  },
+  "files": [
+    "index.ts"
+  ]
+}
