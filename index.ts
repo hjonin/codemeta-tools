@@ -1,12 +1,34 @@
 import Ajv, {JSONSchemaType} from "ajv";
-import addFormats from 'ajv-formats'
+import addFormats from "ajv-formats"
+import jsonld from "jsonld"
 
 import spdx from "./data/spdx/licenses.json"
+import codemetaContextV2 from "./data/contexts/codemeta-2.0.json"
+import codemetaContextV3 from "./data/contexts/codemeta-3.0.json"
+
+const CODEMETA_CONTEXTS = {
+    "https://doi.org/10.5063/schema/codemeta-2.0": codemetaContextV2,
+    "https://w3id.org/codemeta/3.0": codemetaContextV3
+}
+const licenses = spdx.licenses.map(license => `https://spdx.org/licenses/${license.licenseId}`)
 
 const ajv = new Ajv({allowUnionTypes: true});
 addFormats(ajv);
 
-const licenses = spdx.licenses.map(license => `https://spdx.org/licenses/${license.licenseId}`)
+const nodeDocumentLoader = jsonld.documentLoaders.node();
+const customLoader = async (url, options) => {
+  if(url in CODEMETA_CONTEXTS) {
+    return {
+      contextUrl: null,
+      document: CODEMETA_CONTEXTS[url],
+      documentUrl: url
+    };
+  }
+  // call the default documentLoader
+  return nodeDocumentLoader(url);
+};
+
+jsonld.documentLoader = customLoader;
 
 interface Review {
   type: "Review"
@@ -273,12 +295,7 @@ const Schema: JSONSchemaType<CodemetaV3> = {
   },
 };
 
-// validate is a type guard for Codemeta - type is inferred from schema type
 const validate = ajv.compile(Schema);
-
-// or, if you did not use type annotation for the schema,
-// type parameter can be used to make it type guard:
-// const validate = ajv.compile<Codemeta>(schema)
 
 const data = {
     "@context": "https://w3id.org/codemeta/3.0",
@@ -287,9 +304,12 @@ const data = {
     "name": "foo"
 };
 
-if (validate(data)) {
-  // data is Codemeta here
-  console.log(data);
-} else {
-  console.log(validate.errors);
-}
+jsonld.expand(data).then(expanded => {
+  return jsonld.compact(expanded, codemetaContextV3);
+}).then(compacted => {
+  if (validate(data)) {
+    console.log(compacted);
+  } else {
+    console.log(validate.errors);
+  }
+});
