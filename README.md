@@ -1,6 +1,6 @@
-# metadata-tools
+# codemeta-tools
 
-A set of tools to support the creation of codemeta.json in repositories.
+A set of tools to support the creation of metadata files (including but not limited to `codemeta.json` files) for software.
 
 ## Run locally
 

@@ -1,7 +1,7 @@
 {
-  "name": "metadata-tools",
+  "name": "codemeta-tools",
   "version": "1.0.0",
-  "description": "A set of tools to generate/validate metadata on software.",
+  "description": "A set of tools to play with software metadata.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "author": "hjonin",
   "license": "AGPL-3.0-or-later",
-  "repository": "git@github.com:hjonin/metadata-tools.git",
+  "repository": "git@github.com:hjonin/codemeta-tools.git",
   "files": [
     "dist",
     "LICENSE",
