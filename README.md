@@ -14,6 +14,11 @@ Run validator on test data:
 ts-node index.ts
 ```
 
+Run tests:
+```bash
+npm run test 
+```
+
 ## Authors
 
 - [@hjonin](https://github.com/hjonin)

@@ -52,4 +52,4 @@ interface CodemetaV3 {
   referencePublication?: string
 }
 
-export { CodemetaV3 };
+export {CodemetaV3};

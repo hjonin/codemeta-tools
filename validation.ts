@@ -35,9 +35,11 @@ const validate = async (codemeta, version = "3.0") => {
     const validateCodemetaV3 = ajv.compile(codemetaV3Schema);
     if (validateCodemetaV3(compacted)) {
         console.log(compacted);
+        return true;
     } else {
         console.log(validateCodemetaV3.errors);
+        return false;
     }
 }
 
-export { validate };
+export {validate};

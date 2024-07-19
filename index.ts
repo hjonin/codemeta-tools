@@ -1,5 +1,5 @@
 import {validate} from "./validation";
 
-import codemeta from "./data/samples/codemeta.minimal.json"
+import codemeta from "./data/examples/codemeta.minimal.json"
 
 validate(codemeta);

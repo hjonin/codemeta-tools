@@ -219,4 +219,4 @@ const codemetaV3Schema: JSONSchemaType<CodemetaV3> = {
   },
 };
 
-export { codemetaV3Schema };
+export {codemetaV3Schema};
