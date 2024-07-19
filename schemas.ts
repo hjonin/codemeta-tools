@@ -1,4 +1,5 @@
 import {JSONSchemaType} from "ajv";
+import {CodemetaV3} from "./types";
 
 import spdx from "./data/spdx/licenses.json"
 
@@ -6,60 +7,6 @@ const LICENSE_PREFIX = "https://spdx.org/licenses/";
 const licenses = spdx.licenses.map(
     license => `${LICENSE_PREFIX}${license.licenseId}`
 );
-
-interface Review {
-  type: "Review"
-  reviewAspect?: string
-  reviewBody?: string
-}
-
-interface Organization {
-  type: "Organization"
-  name: string
-}
-
-interface Person {
-  type: "Person"
-  affiliation?: Organization
-  email?: string
-  familyName?: string
-  givenName: string
-  id?: string
-}
-
-interface CodemetaV3 {
-  type: "SoftwareSourceCode" | "SoftwareApplication"
-  applicationCategory?: string
-  author?: (Person | Organization)[]
-  codeRepository?: string
-  contributor?: (Person | Organization)[]
-  dateCreated?: string
-  dateModified?: string
-  datePublished?: string
-  description?: string
-  downloadUrl?: string
-  funder?: Person | Organization
-  identifier?: string
-  isPartOf?: string
-  keywords?: string
-  license?: string
-  name: string
-  operatingSystem?: string
-  programmingLanguage?: string
-  relatedLink?: string
-  releaseNotes?: string
-  review?: Review
-  runtimePlatform?: string
-  softwareRequirements?: string
-  version?: string | number
-
-  continuousIntegration?: string
-  developmentStatus?: string
-  funding?: string
-  isSourceCodeOf?: string
-  issueTracker?: string
-  referencePublication?: string
-}
 
 const codemetaV3Schema: JSONSchemaType<CodemetaV3> = {
   type: "object",
@@ -272,4 +219,4 @@ const codemetaV3Schema: JSONSchemaType<CodemetaV3> = {
   },
 };
 
-export { CodemetaV3, codemetaV3Schema };
+export { codemetaV3Schema };

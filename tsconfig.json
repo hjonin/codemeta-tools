@@ -8,6 +8,6 @@
     "module": "NodeNext"
   },
   "files": [
-    "index.ts"
+    "validation.ts"
   ]
 }
