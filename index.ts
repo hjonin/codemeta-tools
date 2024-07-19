@@ -41,7 +41,7 @@ const data = {
 jsonld.expand(data).then(expanded => {
   return jsonld.compact(expanded, codemetaContextV3);
 }).then(compacted => {
-  if (validate(data)) {
+  if (validate(compacted)) {
     console.log(compacted);
   } else {
     console.log(validate.errors);
