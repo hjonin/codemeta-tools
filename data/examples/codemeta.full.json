@@ -1,0 +1,90 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "Astronomy",
+    "author": [
+        {
+            "id": "http://orcid.org/0000-0002-1825-0097",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Department of Computer Science, University of Pisa"
+            },
+            "email": "jane.doe@example.org",
+            "familyName": "Doe",
+            "givenName": "Jane"
+        },
+        {
+            "type": "Role",
+            "schema:author": "http://orcid.org/0000-0002-1825-0097",
+            "endDate": "2024-07-19",
+            "roleName": "Developer",
+            "startDate": "2024-07-18"
+        }
+    ],
+    "codeRepository": "git+https://github.com/You/RepoName.git",
+    "contributor": {
+        "id": "http://orcid.org/0000-0002-1825-0097",
+        "type": "Person",
+        "affiliation": {
+            "type": "Organization",
+            "name": "Department of Computer Science, University of Pisa"
+        },
+        "email": "jane.doe@example.org",
+        "familyName": "Doe",
+        "givenName": "Jane"
+    },
+    "dateCreated": "2024-07-19",
+    "dateModified": "2024-07-19",
+    "datePublished": "2024-07-19",
+    "description": "My Software computes ephemerides and orbit propagation. It has been developed from early ´80.",
+    "downloadUrl": "https://example.org/MySoftware.tar.gz",
+    "funder": {
+        "type": "Organization",
+        "name": "Università di Pisa"
+    },
+    "identifier": "10.151.xxxxx",
+    "isPartOf": "http://The.Bigger.Framework.org",
+    "keywords": [
+        "ephemerides",
+        "orbit",
+        "astronomy"
+    ],
+    "license": "https://spdx.org/licenses/MIT",
+    "name": "My Software",
+    "operatingSystem": [
+        "Android 1.6",
+        "Linux",
+        "Windows",
+        "macOS"
+    ],
+    "programmingLanguage": [
+        "C#",
+        "Java",
+        "Python 3"
+    ],
+    "releaseNotes": "Change log: this and that;\nBugfixes: that and this.",
+    "review": {
+        "type": "Review",
+        "reviewAspect": "Object facet",
+        "reviewBody": "Review about my software."
+    },
+    "runtimePlatform": [
+        ".NET",
+        "JVM"
+    ],
+    "softwareRequirements": [
+        "Python 3.4",
+        "https://github.com/psf/requests"
+    ],
+    "version": "1.0.0",
+    "codemeta:contIntegration": {
+        "id": "https://travis-ci.org/You/RepoName"
+    },
+    "continuousIntegration": "https://travis-ci.org/You/RepoName",
+    "developmentStatus": "wip",
+    "funding": "PRA_2018_73",
+    "isSourceCodeOf": "Bigger Application",
+    "issueTracker": "https://github.com/You/RepoName/issues",
+    "referencePublication": "https://doi.org/10.1000/xyz123"
+}

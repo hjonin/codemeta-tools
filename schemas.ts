@@ -28,6 +28,7 @@ const codemetaV3Schema: JSONSchemaType<CodemetaV3> = {
       items: {
         oneOf: [
           {$ref: "#/definitions/Person"},
+          {$ref: "#/definitions/Role"},
           {$ref: "#/definitions/Organization"}
         ]
       } as any, // See https://github.com/ajv-validator/ajv/issues/2392
@@ -39,13 +40,20 @@ const codemetaV3Schema: JSONSchemaType<CodemetaV3> = {
       nullable: true
     },
     contributor: {
-      type: "array",
-      items: {
-        oneOf: [
-          {$ref: "#/definitions/Person"},
-          {$ref: "#/definitions/Organization"}
-        ]
-      } as any, // See https://github.com/ajv-validator/ajv/issues/2392
+      type: ["object", "array"],
+      anyOf: [
+        {
+          type: "array",
+          items: {
+            oneOf: [
+              {$ref: "#/definitions/Person"},
+              {$ref: "#/definitions/Role"},
+              {$ref: "#/definitions/Organization"}
+            ]
+          }
+        },
+        {$ref: "#/definitions/Person"}
+      ] as any, // See https://github.com/ajv-validator/ajv/issues/2392
       nullable: true
     },
     dateCreated: {
@@ -83,7 +91,10 @@ const codemetaV3Schema: JSONSchemaType<CodemetaV3> = {
       nullable: true
     },
     keywords: {
-      type: "string",
+      type: "array",
+      items:  {
+        type: "string"
+      },
       nullable: true
     },
     license: {
@@ -95,11 +106,17 @@ const codemetaV3Schema: JSONSchemaType<CodemetaV3> = {
       type: "string",
     },
     operatingSystem: {
-      type: "string",
+      type: "array",
+      items: {
+        type: "string"
+      },
       nullable: true
     },
     programmingLanguage: {
-      type: "string",
+      type: "array",
+      items: {
+        type: "string"
+      },
       nullable: true
     },
     relatedLink: {
@@ -133,11 +150,17 @@ const codemetaV3Schema: JSONSchemaType<CodemetaV3> = {
       nullable: true
     },
     runtimePlatform: {
-      type: "string",
+      type: "array",
+      items: {
+        type: "string"
+      },
       nullable: true
     },
     softwareRequirements: {
-      type: "string",
+      type: "array",
+      items: {
+        type: "string"
+      },
       nullable: true
     },
     version: {
@@ -173,21 +196,6 @@ const codemetaV3Schema: JSONSchemaType<CodemetaV3> = {
     }
   },
   definitions: {
-    Organization: {
-      type: "object",
-      properties: {
-        type: {
-          type: "string"
-        },
-        name: {
-          type: "string"
-        }
-      },
-      required: [
-        "type",
-        "name"
-      ]
-    },
     Person: {
       type: "object",
       properties: {
@@ -215,8 +223,47 @@ const codemetaV3Schema: JSONSchemaType<CodemetaV3> = {
         "type",
         "givenName",
       ]
-    }
-  },
+    },
+    Role: {
+      type: "object",
+      properties: {
+        type: {
+          const: "Role",
+          type: "string"
+        },
+        roleName: {
+          type: "string",
+        },
+        startDate: {
+          type: "string",
+          format: "date",
+        },
+        endDate: {
+          type: "string",
+          format: "date",
+        }
+      },
+      required: [
+        "type",
+        "roleName",
+      ]
+    },
+    Organization: {
+      type: "object",
+      properties: {
+        type: {
+          type: "string"
+        },
+        name: {
+          type: "string"
+        }
+      },
+      required: [
+        "type",
+        "name"
+      ]
+    },
+  }
 };
 
 export {codemetaV3Schema};

@@ -20,3 +20,17 @@ test('minimal codemeta passes', async () => {
         .resolves
         .toBeTruthy();
 });
+
+test('full codemeta passes', async () => {
+    const codemeta = getCodemeta("full");
+    await expect(validate(codemeta))
+        .resolves
+        .toBeTruthy();
+});
+
+test('codemeta with invalid license fails', async () => {
+    const codemeta = getCodemeta("invalid-license");
+    await expect(validate(codemeta))
+        .rejects
+        .toThrow("data/license must be equal to one of the allowed values");
+});
