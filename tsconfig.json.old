@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "strictNullChecks": true,
+    "target": "ES6",
+    "module": "NodeNext"
+  },
+  "files": [
+    "validation.ts"
+  ]
+}
