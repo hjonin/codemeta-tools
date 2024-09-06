@@ -2,6 +2,12 @@
 
 A set of tools to support the creation of metadata files (including but not limited to `codemeta.json` files) for software.
 
+## Installation
+
+```bash
+npm install codemeta-tools
+```
+
 ## Run locally
 
 Install dependencies:
@@ -9,14 +15,15 @@ Install dependencies:
 npm install
 ```
 
-Run validator on test data:
-```bash
-ts-node index.ts
-```
-
 Run tests:
 ```bash
 npm run test 
+```
+
+Publish:
+```bash
+npm version [version]
+npm publish
 ```
 
 ## Authors
