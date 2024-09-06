@@ -1,9 +1,8 @@
 {
   "name": "codemeta-tools",
   "version": "1.0.1",
-  "main": "dist/cjs/src/index.js",
+  "main": "dist/esm/src/index.js",
   "types": "dist/src/index.d.ts",
-  "module": "dist/esm/src/index.js",
   "files": [
     "dist/",
     "LICENSE",
@@ -12,7 +11,7 @@
   ],
   "scripts": {
     "test": "jest",
-    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "build": "tsc",
     "prepublishOnly": "npm run build"
   },
   "author": "hjonin",
