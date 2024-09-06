@@ -16,7 +16,7 @@ import {readFileSync} from "node:fs";
 
 import {expect, test} from "@jest/globals";
 
-import {CodemetaValidationError, validate} from "../src/validation";
+import {CodemetaValidationError, validate} from "../src";
 
 const getCodemeta = (suffix: string) =>
     JSON.parse(readFileSync(`./data/examples/codemeta.${suffix}.json`, "utf8"));
