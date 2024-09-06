@@ -2,7 +2,7 @@
   "name": "codemeta-tools",
   "version": "1.0.2",
   "main": "dist/esm/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "types": "dist/esm/src/index.d.ts",
   "files": [
     "dist/",
     "LICENSE",
@@ -10,7 +10,7 @@
     "package.json"
   ],
   "scripts": {
-    "test": "jest",
+    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" npx jest",
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },

@@ -14,13 +14,13 @@
  */
 import {JSONSchemaType} from "ajv";
 
-import {CodemetaV3} from "./types";
+import {CodemetaV3} from "./types.js";
 
-import spdx from "../data/spdx/licenses.json"
+import spdx from "../data/spdx/licenses.json" with {type: "json"};
 
 const LICENSE_PREFIX = "https://spdx.org/licenses/";
 const licenses = spdx.licenses.map(
-    license => `${LICENSE_PREFIX}${license.licenseId}`
+    (license: { licenseId: string; }) => `${LICENSE_PREFIX}${license.licenseId}`
 );
 
 const codemetaV3Schema: JSONSchemaType<CodemetaV3> = {

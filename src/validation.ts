@@ -13,14 +13,14 @@
  * this program. If not, see <https://www.gnu.org/licenses/>.
  */
 import Ajv, {ErrorObject} from "ajv";
-import addFormats from "ajv-formats"
-// @ts-ignore
-import jsonld from "jsonld"
+import addFormats from "ajv-formats";
+// @ts-ignore types
+import jsonld from "jsonld";
 
-import {codemetaV3Schema} from "./schemas";
+import {codemetaV3Schema} from "./schemas.js";
 
-import codemetaContextV2 from "../data/contexts/codemeta-2.0.json"
-import codemetaContextV3 from "../data/contexts/codemeta-3.0.json"
+import codemetaContextV2 from "../data/contexts/codemeta-2.0.json" with {type: "json"};
+import codemetaContextV3 from "../data/contexts/codemeta-3.0.json" with {type: "json"};
 
 class CodemetaValidationError extends Error {
     constructor(errors: ErrorObject[] | null | undefined) {
