@@ -1,7 +1,8 @@
 import {JSONSchemaType} from "ajv";
+
 import {CodemetaV3} from "./types";
 
-import spdx from "./data/spdx/licenses.json"
+import spdx from "../data/spdx/licenses.json"
 
 const LICENSE_PREFIX = "https://spdx.org/licenses/";
 const licenses = spdx.licenses.map(

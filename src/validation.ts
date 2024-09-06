@@ -5,8 +5,8 @@ import jsonld from "jsonld"
 
 import {codemetaV3Schema} from "./schemas";
 
-import codemetaContextV2 from "./data/contexts/codemeta-2.0.json"
-import codemetaContextV3 from "./data/contexts/codemeta-3.0.json"
+import codemetaContextV2 from "../data/contexts/codemeta-2.0.json"
+import codemetaContextV3 from "../data/contexts/codemeta-3.0.json"
 
 class CodemetaValidationError extends Error {
     constructor(errors: ErrorObject[] | null | undefined) {
