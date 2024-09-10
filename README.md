@@ -4,6 +4,8 @@ A set of tools to support the creation of metadata files (including but not limi
 
 ## Installation
 
+**Node.js (>= 18) + npm**
+
 ```bash
 npm install codemeta-tools
 ```
