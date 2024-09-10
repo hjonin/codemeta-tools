@@ -1,6 +1,6 @@
 {
   "name": "codemeta-tools",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/esm/src/index.js",
   "types": "dist/esm/src/index.d.ts",
   "files": [
