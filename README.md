@@ -17,7 +17,7 @@ validate({
     "@context": "https://w3id.org/codemeta/3.0",
     "type": "SoftwareSourceCode",
     "license": "https://spdx.org/licenses/AGPL-3.0-or-later",
-    "name": "Test project"
+    "name": "codemeta-tools"
 });
 ```
 
