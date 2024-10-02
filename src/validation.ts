@@ -14,7 +14,7 @@
  */
 import Ajv, {ErrorObject} from "ajv";
 import addFormats from "ajv-formats";
-// @ts-ignore types
+// @ts-ignore
 import jsonld from "jsonld";
 
 import {codemetaV3Schema} from "./schemas.js";
@@ -37,7 +37,7 @@ const CODEMETA_CONTEXTS: { [Key: string]: {} } = {
 const ajv = new Ajv({allowUnionTypes: true});
 addFormats(ajv);
 
-const nodeDocumentLoader = jsonld.documentLoaders.node();
+const documentLoader = jsonld.documentLoader;
 const customLoader = async (url: string) => {
     if (url in CODEMETA_CONTEXTS) {
         return {
@@ -47,7 +47,7 @@ const customLoader = async (url: string) => {
         };
     }
     // call the default documentLoader
-    return nodeDocumentLoader(url);
+    return documentLoader(url);
 };
 jsonld.documentLoader = customLoader;
 
