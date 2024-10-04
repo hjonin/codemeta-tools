@@ -229,10 +229,7 @@ const codemetaV3Schema: JSONSchemaType<CodemetaV3> = {
                 givenName: {
                     type: "string"
                 },
-                id: {
-                    type: "string",
-                    format: "uri",
-                }
+                id: {$ref: "#/definitions/Identifier"}
             },
             required: [
                 "type",
@@ -278,6 +275,18 @@ const codemetaV3Schema: JSONSchemaType<CodemetaV3> = {
                 "name"
             ]
         },
+        Identifier: {
+            oneOf: [
+                {
+                    type: "string",
+                    format: "uri"
+                },
+                {
+                    type: "string",
+                    pattern: "^_:"
+                }
+            ]
+        }
     }
 };
 

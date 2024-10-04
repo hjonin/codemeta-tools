@@ -48,3 +48,10 @@ test("codemeta with invalid license fails", async () => {
         .rejects
         .toThrow("data/license must be equal to one of the allowed values");
 });
+
+test("codemeta with blank node passes", async () => {
+    const codemeta = getCodemeta("blank-node");
+    await expect(validate(codemeta))
+        .resolves
+        .toBeTruthy();
+});

@@ -1,0 +1,12 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "license": "https://spdx.org/licenses/AGPL-3.0-or-later",
+    "name": "foo",
+    "contributor": {
+        "id": "_:contributor_1",
+        "type": "Person",
+        "familyName": "Doe",
+        "givenName": "Jane"
+    }
+}
