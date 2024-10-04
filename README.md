@@ -21,6 +21,31 @@ validate({
 });
 ```
 
+### Browser bundle
+
+The npm package includes bundled code in `./dist/codemeta-tools.bundle.js` which can be loaded as an ES Module.
+
+You can also load it using [jsDelivr](https://www.jsdelivr.com/) CDN, like in the example below.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="module">
+  import {
+    validate
+  } from "https://cdn.jsdelivr.net/npm/codemeta-tools@[VERSION]/dist/codemeta-tools.bundle.js/+esm";
+
+  validate(/* {...} */)
+</script>
+</body>
+</html>
+```
+
 ## Run locally
 
 Install dependencies:
