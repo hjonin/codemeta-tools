@@ -1,3 +1,5 @@
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/hjonin/codemeta-tools/ci.yml?label=Tests)
+
 # codemeta-tools
 
 A set of tools to support the creation of metadata files (including but not limited to `codemeta.json` files) for software.
