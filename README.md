@@ -66,6 +66,12 @@ npm version [version]
 npm publish
 ```
 
+## Contributing
+
+Contributions are always welcome!
+
+There is a [list of issues](https://github.com/hjonin/codemeta-tools/issues) related to this repository, some of them labeled as [good first issues](https://github.com/hjonin/codemeta-tools/contribute).
+
 ## Authors
 
 - [@hjonin](https://github.com/hjonin)
